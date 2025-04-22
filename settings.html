@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFlixi - Settings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <a href="index.html" class="home-button">
+        <i class="fas fa-home"></i>
+        Home
+    </a>
+
+    <div class="settings-container">
+        <h1>Theme Settings</h1>
+        <div class="theme-options">
+            <button class="theme-button default" onclick="setTheme('default')">
+                <i class="fas fa-paint-brush"></i>
+                Default Theme
+            </button>
+            <button class="theme-button blue" onclick="setTheme('blue')">
+                <i class="fas fa-paint-brush"></i>
+                Blue Theme
+            </button>
+            <button class="theme-button mint" onclick="setTheme('mint')">
+                <i class="fas fa-paint-brush"></i>
+                Mint Theme
+            </button>
+            <button class="theme-button lavender" onclick="setTheme('lavender')">
+                <i class="fas fa-paint-brush"></i>
+                Lavender Theme
+            </button>
+        </div>
+    </div>
+
+    <script src="themes.js"></script>
+</body>
+</html>

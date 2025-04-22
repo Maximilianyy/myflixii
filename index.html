@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyFlixi - Stream Movies & Shows</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader" class="loader">
+      <div class="loader-spinner"></div>
+  </div>
+  
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="nav-logo">
+        <img src="assets/logo.png" alt="MyFlixi Logo" class="logo">
+      </div>
+      <div class="nav-links">
+        <a href="#home" class="active">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#movies">
+          <i class="fas fa-film"></i>
+          <span>Movies</span>
+        </a>
+        <a href="#shows">
+          <i class="fas fa-tv"></i>
+          <span>Shows</span>
+        </a>
+      </div>
+      <div class="search-bar">
+        <div class="search-input">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search...">
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Featured Section -->
+    <section id="featured" class="featured">
+      <div class="featured-content">
+        <h1 id="featuredTitle"></h1>
+        <p id="featuredDesc"></p>
+        <button id="playFeatured" class="play-btn">
+          <i class="fas fa-play"></i> Play
+        </button>
+      </div>
+    </section>
+
+    <!-- Content Sections -->
+    <section id="trending" class="content-section">
+      <h2>Trending Now</h2>
+      <div class="content-slider">
+        <button class="slide-btn prev">‹</button>
+        <div class="content-grid" id="trendingContent"></div>
+        <button class="slide-btn next">›</button>
+      </div>
+    </section>
+
+    <section id="movies" class="content-section">
+      <h2>Popular Movies</h2>
+      <div class="content-slider">
+        <button class="slide-btn prev">‹</button>
+        <div class="content-grid" id="moviesContent"></div>
+        <button class="slide-btn next">›</button>
+      </div>
+    </section>
+
+    <section id="shows" class="content-section">
+      <h2>Popular Shows</h2>
+      <div class="content-slider">
+        <button class="slide-btn prev">‹</button>
+        <div class="content-grid" id="showsContent"></div>
+        <button class="slide-btn next">›</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer & Settings Button -->
+  <footer class="footer">
+      <div class="footer-content">
+          <div class="legal-section">
+              <h3>Legal Disclaimer</h3>
+              <div class="legal-text">
+                  <p>MyFlixi hosts keinen Content – alle Medieninhalte werden von Drittanbietern bezogen.</p>
+              </div>
+          </div>
+          <div class="copyright">
+              <p>© 2025 MyFlixi by Iron Kern</p>
+          </div>
+      </div>
+  </footer>
+
+  <a href="settings.html" class="settings-button">
+      <i class="fas fa-cog"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="themes.js"></script>
+  <script src="details.js"></script>
+
+  <!-- Service Worker Registrierung -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('Service Worker registered', reg))
+          .catch(err => console.error('Service Worker registration failed', err));
+      });
+    }
+  </script>
+</body>
+</html>
+<link rel="manifest" href="manifest.json">

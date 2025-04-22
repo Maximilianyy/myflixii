@@ -1,0 +1,21 @@
+{
+    "short_name": "MyFlixi",
+    "name": "MyFlixi - Stream Movies & Shows",
+    "icons": [
+      {
+        "src": "assets/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "logo.png"
+      },
+      {
+        "src": "assets/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "logo.png"
+      }
+    ],
+    "start_url": "index.html",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "./",
+    "theme_color": "#007bff"
+  }

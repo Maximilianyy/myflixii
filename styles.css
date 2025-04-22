@@ -1,0 +1,651 @@
+/* Root Variables */
+:root {
+    --background: #0f0f0f;
+    --surface: #1a1a1a;
+    --primary: #e50914;
+    --text: #ffffff;
+    --text-secondary: #9e9e9e;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Header & Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: linear-gradient(to bottom, #000000cc, transparent);
+    backdrop-filter: blur(10px);
+}
+
+.nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a.active {
+    background: var(--primary);
+}
+
+/* Search Component */
+.search-bar {
+    position: relative;
+    margin-left: auto;
+    z-index: 100;
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-input input {
+    width: 300px;
+    padding: 0.75rem 2.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.search-input i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+.search-results {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    width: 350px;
+    max-height: 400px;
+    background: var(--surface);
+    border-radius: 8px;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    display: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--surface);
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-results::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background: var(--surface);
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+.search-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.search-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.search-item .title {
+    color: var(--text);
+}
+
+.search-item .type {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Main Content Section */
+.main {
+    padding-top: 70px;
+}
+
+/* Featured Section */
+.featured {
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.featured::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--background), transparent);
+}
+
+.featured-content {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.featured-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.play-btn {
+    padding: 0.75rem 2rem;
+    background: var(--primary);
+    border: none;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Content Grid & Slider */
+.content-section {
+    padding: 2rem 5%;
+}
+
+.content-section h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.content-slider {
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.content-grid {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+    scrollbar-width: none;
+}
+
+.content-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Slider Navigation */
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    border: none;
+    color: var(--text);
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.slide-btn:hover {
+    opacity: 0.8;
+}
+
+.slide-btn.prev { left: -20px; }
+.slide-btn.next { right: -20px; }
+
+/* Content Cards */
+.content-card {
+    flex: 0 0 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.content-card:hover {
+    transform: scale(1.05);
+}
+
+.content-card img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+/* Details Page Layout */
+.details-container {
+    padding: 2rem 5%;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+}
+
+.details-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Poster Section */
+.poster-section {
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+}
+
+.poster-image {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.poster-image:hover {
+    transform: scale(1.05);
+}
+
+/* Player Section */
+.player-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--surface);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.player-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Episode Selector */
+.episode-selector {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+
+.episode-selector.hidden {
+    display: none;
+}
+
+.select-style {
+    flex: 1;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.select-style:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Media Info Section */
+.media-info {
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.media-info h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.meta-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.separator {
+    color: var(--text-secondary);
+}
+
+#mediaOverview {
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* Footer */
+.footer {
+    background: var(--surface);
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.legal-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.legal-section h3 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.legal-text {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-text p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.copyright {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    to { 
+        transform: rotate(360deg); 
+    }
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .media-grid {
+        grid-template-columns: 250px 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .search-bar {
+        width: 100%;
+    }
+    
+    .search-input input {
+        width: 100%;
+    }
+    
+    .search-results {
+        width: 100%;
+    }
+    
+    .details-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .poster-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        order: 1;
+        position: static;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .poster-image {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .media-info {
+        text-align: center;
+        margin: 0;
+        order: 2;
+    }
+
+    .meta-info {
+        text-align: center;
+        margin: 0.5rem 0;
+        justify-content: center;
+    }
+
+    .player-container {
+        width: 100%;
+        order: 3;
+        margin-top: 1rem;
+    }
+
+    .featured-content h1 {
+        font-size: 2rem;
+    }
+    
+    .episode-selector {
+        flex-direction: column;
+    }
+
+    #mediaOverview {
+        max-height: 0;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-section {
+        padding: 1rem;
+    }
+    
+    .slide-btn {
+        display: none;
+    }
+}
+/* Add this to your existing CSS file */
+.settings-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--surface);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
+
+.settings-button i {
+    color: var(--text);
+    font-size: 1.5rem;
+}
+
+.settings-button:hover {
+    transform: rotate(45deg);
+}
+
+/* Settings Page Styles */
+.settings-container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 2rem;
+}
+
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.theme-button {
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.theme-button:hover {
+    transform: scale(1.05);
+}
+
+.theme-button.default {
+    background: var(--primary);
+}
+
+.theme-button.blue {
+    background: #0066ff;
+}
+
+.theme-button.mint {
+    background: #00b894;
+}
+
+.theme-button.lavender {
+    background: #9c88ff;
+}
+
+.home-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--surface);
+    border: none;
+    border-radius: 8px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.home-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+/* Übergangsanimation für den Theme-Wechsel */
+body.transition {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Theme-Farben */
+body.darkTheme { background-color: #181818; color: white; }
+body.blueTheme { background-color: #007bff; color: white; }
+body.mintTheme { background-color: #3eb489; color: white; }
+body.lavenderTheme { background-color: #9370db; color: white; }
+
+/* Die Einstellungen-Seite übernimmt das komplette Theme */
+.settings-container {
+    padding: 20px;
+    border-radius: 10px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
